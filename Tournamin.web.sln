@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BF3B53
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Tournamin.web.Azure", "Tournamin.web.Azure\Tournamin.web.Azure.ccproj", "{7848AADE-3327-4661-AA60-621F30CC353E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{8B0860A8-11B1-4722-A75B-DE1D2DECE323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B0860A8-11B1-4722-A75B-DE1D2DECE323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B0860A8-11B1-4722-A75B-DE1D2DECE323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7848AADE-3327-4661-AA60-621F30CC353E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7848AADE-3327-4661-AA60-621F30CC353E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7848AADE-3327-4661-AA60-621F30CC353E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7848AADE-3327-4661-AA60-621F30CC353E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
