@@ -783,3 +783,16 @@ ul {
 .group :first {
     margin-left: 0 !important;
 }
+
+.finales {
+    float: left;
+    clear: both;
+}
+
+.finales table td{
+    text-align: right;
+}
+
+.finales-team {
+    border: 1px solid #aaa; background-color: #F9F9F9;
+}
