@@ -754,3 +754,32 @@ tr.pager td {
             margin: 0;
         }
 }
+
+
+.score {
+    width: 2em;
+}
+
+.team {
+    width: 6em;
+}
+
+.team-b {
+    text-align: right;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 0 !important;
+    
+}
+
+.group{
+    float: left;
+    margin-left: 5em;
+}
+
+.group :first {
+    margin-left: 0 !important;
+}
