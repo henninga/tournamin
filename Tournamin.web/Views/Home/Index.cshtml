@@ -36,7 +36,7 @@
 </div>
 <input type="submit" value="Save" data-bind="click:save" />
 
-<div data-bind="foreach: Groups" class="summary-tables">
+<div data-bind="foreach: results" class="summary-tables">
     <table>
         <thead><tr>
                    <td>Lag</td>
@@ -47,7 +47,11 @@
                </tr></thead>
         <tbody data-bind="foreach:Teams">
             <tr>
-                <td data-bind="text:Name"></td>
+                <td data-bind="text:TeamName"></td>
+                <td data-bind="text:Wins"></td>
+                <td data-bind="text:Draw"></td>
+                <td data-bind="text:Losses"></td>
+                <td data-bind="text:Points"></td>
             </tr>
         </tbody>
     </table>
@@ -64,7 +68,11 @@
             groups.Groups = ko.mapping.fromJS(@Html.Raw(JsonConvert.SerializeObject(Model)));
             groups.save = function() {
                     
-                };
+            };
+            groups.results = ko.observableArray([{GroupName:'A', Teams:[
+                    {TeamName:'Norge', Wins:0, Draw:0, Losses:1, Points:0},
+                    {TeamName:'Hellas', Wins:1, Draw:0, Losses:0, Points:3}
+                ]}, {GroupName:'B', Teams:[]}]);
             ko.applyBindings(groups);
         });
     </script>
