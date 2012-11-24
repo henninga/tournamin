@@ -9,21 +9,31 @@
                 <h1>@ViewBag.Title.</h1>
             </hgroup>
             <p>
-               This is a fake tournament
+                This is a fake tournament
             </p>
         </div>
     </section>
 }
-
-@foreach(var group in Model)
+@foreach (var group in Model)
 {
+    
     <div class="group">
-        <h1>Group @group.GroupName</h1>
-        <ul>
-            @foreach(var match in group.Matches)
-            {
-                <li><label class="team team-a">@match.TeamA</label> @Html.TextBoxFor(x => match.ScoreA, new {@class="score"}) -  @Html.TextBoxFor(x => match.ScoreB, new { @class = "score" }) <label class="team team-b">@match.TeamB</label></li>
-            }
-        </ul>
+        @using (Html.BeginForm("Save", "Home", new { group = group.GroupName }))
+        {
+            <h1>
+                Group @group.GroupName</h1>
+            <ul>
+                @foreach (var match in group.Matches)
+                {
+                    <li>
+                        <label class="team team-a">@match.TeamA</label>
+                        @Html.TextBoxFor(x => match.ScoreA, new { @class = "score" }) - @Html.TextBoxFor(x => match.ScoreB, new { @class = "score" })
+                        <label class="team team-b">@match.TeamB</label>
+                    </li>
+                }
+            </ul>
+            <input type="submit" value="Save"/>
+        }
+
     </div>
 }
