@@ -783,3 +783,8 @@ ul {
 .group :first {
     margin-left: 0 !important;
 }
+
+.summary-tables {
+    clear: left;
+    float: left;
+}

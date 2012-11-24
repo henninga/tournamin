@@ -1,4 +1,5 @@
-﻿@model IList<Tournamin.web.Models.Group>
+﻿@using Newtonsoft.Json
+@model IList<Tournamin.web.Models.Group>
 @{
     ViewBag.Title = "Fake tournament";
 }
@@ -14,26 +15,55 @@
         </div>
     </section>
 }
-@foreach (var group in Model)
-{
-    
+<div data-bind="foreach: Groups">
     <div class="group">
-        @using (Html.BeginForm("Save", "Home", new { group = group.GroupName }))
-        {
-            <h1>
-                Group @group.GroupName</h1>
-            <ul>
-                @foreach (var match in group.Matches)
-                {
-                    <li>
-                        <label class="team team-a">@match.TeamA</label>
-                        @Html.TextBoxFor(x => match.ScoreA, new { @class = "score" }) - @Html.TextBoxFor(x => match.ScoreB, new { @class = "score" })
-                        <label class="team team-b">@match.TeamB</label>
-                    </li>
-                }
-            </ul>
-            <input type="submit" value="Save"/>
-        }
-
+        <h1>
+            Group <span data-bind="text:GroupName"></span>
+        </h1>
+        <ul data-bind="foreach:Matches">
+            <li>
+                <label class="team team-a" data-bind="text:TeamA">
+                </label>
+                <input class="score" type="text" data-bind="value:ScoreA" />
+                -
+                <input class="score" type="text" data-bind="value:ScoreB" />
+                @*@Html.TextBoxFor(x => match.ScoreA, new { @class = "score" }) - @Html.TextBoxFor(x => match.ScoreB, new { @class = "score" })*@
+                <label class="team team-b" data-bind="text:TeamB">
+                </label>
+            </li>
+        </ul>
     </div>
+</div>
+<input type="submit" value="Save" data-bind="click:save" />
+
+<div data-bind="foreach: Groups" class="summary-tables">
+    <table>
+        <thead><tr>
+                   <td>Lag</td>
+                   <td>S</td>
+                   <td>U</td>
+                   <td>T</td>
+                   <td>P</td>
+               </tr></thead>
+        <tbody data-bind="foreach:Teams">
+            <tr>
+                <td data-bind="text:Name"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        var groups = {};
+        
+        $(function() {
+            groups.Groups = ko.mapping.fromJS(@Html.Raw(JsonConvert.SerializeObject(Model)));
+            groups.save = function() {
+                    
+                };
+            ko.applyBindings(groups);
+        });
+    </script>
 }
