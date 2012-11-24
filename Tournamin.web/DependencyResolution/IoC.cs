@@ -15,7 +15,7 @@ namespace Tournamin.web {
                             x.For<IDocumentStore>().Singleton().Use(y =>
                             {
                                 var store = new EmbeddableDocumentStore();
-                                store.UseEmbeddedHttpServer = true;
+                                //store.UseEmbeddedHttpServer = true;
                                 
                                 store.Initialize();
                                 return store;
