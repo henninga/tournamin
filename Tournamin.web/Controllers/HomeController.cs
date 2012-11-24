@@ -64,9 +64,14 @@ namespace Tournamin.web.Controllers
             return View();
         }
 
+        public ActionResult Save(string group,IList<GroupMatch> matches)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult Index()
         {
-            return View(_session.Query<Group>().ToList());
+            return View(_session.Query<Group>().OrderBy(x => x.GroupName).ToList());
         }
     }
 }

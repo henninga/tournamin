@@ -784,6 +784,7 @@ ul {
     margin-left: 0 !important;
 }
 
+
 .finales {
     float: left;
     clear: both;
@@ -795,4 +796,8 @@ ul {
 
 .finales-team {
     border: 1px solid #aaa; background-color: #F9F9F9;
+}
+.summary-tables {
+    clear: left;
+    float: left;
 }
